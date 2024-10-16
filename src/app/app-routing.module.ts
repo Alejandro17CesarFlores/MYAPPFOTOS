@@ -6,10 +6,18 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'register',
+    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'photo-gallery',
+    loadChildren: () => import('./pages/photo-gallery/photo-gallery.module').then( m => m.PhotoGalleryPageModule)
   },
 ];
 
