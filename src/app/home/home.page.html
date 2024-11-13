@@ -1,18 +1,50 @@
-<ion-header>
+<ion-header> 
   <ion-toolbar>
     <ion-title>Galería de Fotos</ion-title>
+    <!-- Botón para abrir el menú -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-button (click)="addPhotoToGallery()">
-    Tomar Foto
-  </ion-button>
+<!-- Menú lateral -->
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+    <div class="ion-text-center" style="padding: 20px;">
+      <ion-avatar style="margin-bottom: 10px;">
+        <img src="assets/img/Logo.webp" alt="Avatar del Usuario">
+      </ion-avatar>
+      <ion-text color="medium">
+        <p>{{ userEmail }}</p>
+      </ion-text>
+      <ion-item (click)="logout()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Cerrar sesión</ion-label>
+      </ion-item>
+    </div>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="addPhotoToGallery()">
+        <ion-label>Agregar Foto</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
 
+<ion-content id="main-content"> 
   <ion-grid>
     <ion-row>
       <ion-col size="6" *ngFor="let photo of photos">
-        <ion-img [src]="photo.webviewPath"></ion-img>
+        <!-- Contenedor de la imagen con click para abrir modal -->
+        <div class="photo-container" (click)="openImage(photo.webviewPath)">
+          <ion-img [src]="photo.webviewPath"></ion-img>
+        </div>
+        <!-- Botón de eliminar -->
         <ion-button color="danger" (click)="deletePhoto(photo.filepath)">
           Eliminar
         </ion-button>

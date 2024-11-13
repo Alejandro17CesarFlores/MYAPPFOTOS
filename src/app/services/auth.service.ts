@@ -6,7 +6,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth) {}
+  constructor(private readonly afAuth: AngularFireAuth) {}
 
  
   register(email: string, password: string): Promise<any> {

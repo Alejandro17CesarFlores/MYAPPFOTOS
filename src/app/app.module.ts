@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { IonicModule } from '@ionic/angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { ImageModalComponent } from './pages/image-modal/image-modal.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ImageModalComponent],
   imports: [
     BrowserModule,
     IonicModule.forRoot(),

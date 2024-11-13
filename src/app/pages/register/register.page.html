@@ -1,19 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Registro</ion-title>
+  <ion-toolbar color="success">
+    <ion-title class="ion-text-center">Registro</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-item>
-    <ion-label position="floating">Correo Electrónico</ion-label>
-    <ion-input [(ngModel)]="email" type="email"></ion-input>
-  </ion-item>
+<ion-content class="ion-padding" style="background-color: #abd6ae;">
 
-  <ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input [(ngModel)]="password" type="password"></ion-input>
-  </ion-item>
+  <div class="register-container" style="max-width: 400px; margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+    
 
-  <ion-button expand="full" (click)="register()">Registrarse</ion-button>
+    <div class="logo-container ion-text-center">
+      <img src="assets/img/Logo.webp" alt="Logo" style="width: 150px; height: auto; margin-bottom: 20px;">
+    </div>
+
+    <ion-item lines="none" style="background-color: transparent;">
+      <ion-icon name="mail-outline" slot="start" color="success"></ion-icon>
+      <ion-label position="floating" color="success">Correo Electrónico</ion-label>
+      <ion-input [(ngModel)]="email" type="email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" style="background-color: transparent;">
+      <ion-icon name="lock-closed-outline" slot="start" color="success"></ion-icon>
+      <ion-label position="floating" color="success">Contraseña</ion-label>
+      <ion-input [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+
+    
+    <ion-button expand="block" (click)="register()" color="success" style="margin-top: 20px;">
+      <ion-icon name="person-add-outline" slot="start"></ion-icon>
+      Registrarse
+    </ion-button>
+    <p class="ion-text-center" style="margin-top: 10px;">
+      <ion-text color="medium" (click)="redirectToLogin()" style="cursor: pointer;">
+        Ya estoy registrado
+      </ion-text>
+    </p>
+    
+  </div>
 </ion-content>

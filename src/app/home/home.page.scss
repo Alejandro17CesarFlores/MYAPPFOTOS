@@ -25,3 +25,18 @@
 #container a {
   text-decoration: none;
 }
+
+.photo-container {
+  width: 100%;
+  padding-bottom: 100%; /* Mantiene proporción cuadrada */
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-container ion-img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
+  cursor: pointer;
+}

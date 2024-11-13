@@ -7,7 +7,7 @@ import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
   providedIn: 'root',
 })
 export class PhotoService {
-  constructor(private photoRepository: PhotoRepository) {}  // Inyectar el repositorio
+  constructor(private readonly photoRepository: PhotoRepository) {}  // Inyectar el repositorio
 
   // Método para tomar una foto y guardarla
   async takePhoto() {

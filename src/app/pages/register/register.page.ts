@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-register',
@@ -10,19 +11,32 @@ import { Router } from '@angular/router';
 export class RegisterPage {
   email: string = '';
   password: string = '';
+  userEmail: string | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private readonly authService: AuthService, private readonly router: Router, private readonly afAuth: AngularFireAuth) {}
 
-  // Método para registrar un nuevo usuario
+  ngOnInit() {
+    // Obtener el correo del usuario autenticado
+    this.afAuth.authState.subscribe((user) => {
+      if (user) {
+        this.userEmail = user.email;
+      }
+    });
+  }
+
   register() {
     this.authService.register(this.email, this.password)
       .then(() => {
         console.log('Usuario registrado con éxito');
-        this.router.navigate(['/home']);  // Redirige al inicio tras el registro
+        this.router.navigate(['/login']);  
       })
       .catch(error => {
-        console.log('Error en el registro:', error);
+        alert('Error en el registro:');
       });
   }
-}
 
+  // Método para redirigir al login
+  redirectToLogin() {
+    this.router.navigate(['/login']);
+  }
+}
