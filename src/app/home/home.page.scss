@@ -1,34 +1,6 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-
 .photo-container {
   width: 100%;
-  padding-bottom: 100%; /* Mantiene proporción cuadrada */
+  padding-bottom: 100%; /* Proporción cuadrada */
   position: relative;
   overflow: hidden;
 }
@@ -39,4 +11,24 @@
   height: 100%;
   object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
   cursor: pointer;
+}
+
+.photo-container ion-button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  z-index: 10;
+  --size: 2rem; /* Tamaño del botón */
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 768px) {
+  ion-col {
+    padding: 8px; /* Espaciado entre imágenes */
+  }
+
+  .photo-container {
+    border-radius: 8px; /* Opcional: para darle bordes redondeados */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
 }

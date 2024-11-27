@@ -50,4 +50,8 @@
     object-fit: cover; /* Ajusta la imagen al contenedor sin distorsión */
     cursor: pointer;
   }
+  ion-toolbar {
+    height: 50px; /* Ajusta la altura del header */
+  }
+  
   

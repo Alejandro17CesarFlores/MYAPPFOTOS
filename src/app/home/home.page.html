@@ -39,16 +39,15 @@
 <ion-content id="main-content"> 
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let photo of photos">
-        <!-- Contenedor de la imagen con click para abrir modal -->
-        <div class="photo-container" (click)="openImage(photo.webviewPath)">
+      <ion-col size="6" sizeLg="3" *ngFor="let photo of photos">
+        <div class="photo-container">
           <ion-img [src]="photo.webviewPath"></ion-img>
+          <ion-button fill="clear" color="danger" (click)="deletePhoto(photo.filepath)">
+            <ion-icon name="close-circle"></ion-icon>
+          </ion-button>
         </div>
-        <!-- Botón de eliminar -->
-        <ion-button color="danger" (click)="deletePhoto(photo.filepath)">
-          Eliminar
-        </ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
+
